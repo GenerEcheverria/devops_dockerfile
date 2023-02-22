@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  nginx: 
+    image: nginx:stable-alpine
+    container_name: nginx
+    ports:
+      - 8000:80
+    volumes:
+      - .:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - applaravel
+    networks:
+      - networkapp
+  
+  applaravel: 
+    build:
+      args:
+        user: laraveruser
+        uid: 1000
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: applaravel
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    networks:
+      - networkapp
+
+networks:
+  networkapp:
