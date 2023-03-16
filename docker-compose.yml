@@ -15,8 +15,8 @@ services:
       - networkapp
   
   applaravel: 
+    image: "sicei-${GIT_BRANCH}:1.0.0-${BUILD_NUMBER}"
     build:
-      image: "sicei-${GIT_BRANCH}:1.0.0-${BUILD_NUMBER}"
       args:
         user: laraveruser
         uid: 1000
