@@ -17,7 +17,7 @@ use App\Http\Resources\AlumnoResource;
 |
 */
 
-Route::get('alumnos', "\App\Http\Controllers\AlumnoController@index");
+Route::get('/alumnos', "\App\Http\Controllers\AlumnoController@getIndex")->name('alumnos');
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

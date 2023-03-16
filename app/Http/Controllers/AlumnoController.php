@@ -12,6 +12,12 @@ class AlumnoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getIndex()
+    {
+        
+        return $this->index();
+    }
+
     public function index()
     {
         return [
