@@ -2,7 +2,9 @@ pipeline {
     agent any
     stages {
         stage('Instalar dependencias') {
-            bat 'composer install'
+            steps{
+                bat 'composer install'
+            }
         }
         stage('Test') {
             steps {
