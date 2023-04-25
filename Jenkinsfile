@@ -14,8 +14,12 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'docker-compose build' 
-                bat 'docker-compose up -d' 
                 bat 'docker image ls' 
+            }
+        }
+        stage ('Deploy') {
+            steps {
+                bat 'docker-compose up -d' 
             }
         }
     }
