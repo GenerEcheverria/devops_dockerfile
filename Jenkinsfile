@@ -1,15 +1,18 @@
 pipeline {
     agent any
     stages {
+        stage('Instalar dependencias') {
+            bat 'composer install'
+        }
         stage('Test') {
             steps {
-                sh 'php artisan test --filter AlumnoControllerTest' 
+                bat 'php artisan test --filter AlumnoControllerTest' 
             }
         }
         stage('Build') {
             steps {
-                sh 'docker-compose build' 
-                sh 'docker image ls' 
+                bat 'docker-compose build' 
+                bat 'docker image ls' 
             }
         }
     }
