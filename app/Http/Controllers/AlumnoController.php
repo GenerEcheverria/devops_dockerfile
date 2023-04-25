@@ -14,7 +14,7 @@ class AlumnoController extends Controller
      */
     public function getIndex()
     {
-        $this->index();
+        //$this->index();
         return $this->index();
     }
 
